@@ -14,13 +14,15 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         exit()
     try:
         while True:
-            text = str(input('write text: ')) # enter the text we want to send to server
+            # enter the text we want to send to server
+            text = str(input('write text: '))
             if text == 'exit':
                 break
             s.send(text.encode())
             print('we are sending data!')           # encode text to bytes
             data = s.recv(1024)             # get data in bytes from server
             print('we are received data!')
-            print(data.decode())            # decode and output data from server
+            # decode and output data from server
+            print(data.decode())
     except:
         print('connection was lost')

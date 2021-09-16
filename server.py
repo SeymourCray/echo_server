@@ -10,7 +10,7 @@ PORT = 65432        # Port to listen on (non-privileged ports are > 1023)
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.bind((HOST, PORT))    # bind our socket to the given host and port
     while True:
-        command = input()
+        command = input('enter the command')
         if command == 'listen':
             s.listen()
         elif command == 'off':

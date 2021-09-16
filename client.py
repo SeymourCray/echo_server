@@ -8,9 +8,9 @@ PORT = 65432        # The port used by the server
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
     while True:
-        text = str(input('write text'))
+        text = str(input('write text: '))
         if text == 'exit':
             break
-        s.send(text)
+        s.send(text.encode())
         data = s.recv(1024)
-        print(data)
+        print(data.decode())
